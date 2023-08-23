@@ -2,7 +2,7 @@
 
 Installation
 
-1. git clone
+1. git clone https://github.com/komporbakar/list-museum.git
 2. npm install
 3. npm run dev
 
