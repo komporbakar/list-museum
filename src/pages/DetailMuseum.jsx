@@ -14,6 +14,7 @@ import Button from '../components/Atoms/Button';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import ImgSweper from '../components/Atoms/ImgSweper';
+import NavbarBottom from '../components/NavbarBottom';
 
 
 export default function DetailMuseum() {
@@ -30,8 +31,7 @@ export default function DetailMuseum() {
   }, [])
 
   return (
-    <div>
-      
+    <div className="flex flex-col min-h-screen pb-5">
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper mb-5">
         <SwiperSlide>
             <ImgSweper image={detail.src}/>
@@ -71,6 +71,7 @@ export default function DetailMuseum() {
             <Button/>
         </div>
       </section>
+      <NavbarBottom/>
     </div>
   )
 }

@@ -32,7 +32,7 @@ export default {
       purple: colors.violet,
       yellow: colors.amber,
       pink: colors.fuchsia,
-
+      teal: colors.teal
     }
   },
   plugins: [],
