@@ -15,6 +15,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import ImgSweper from '../components/Atoms/ImgSweper';
 import NavbarBottom from '../components/NavbarBottom';
+import axiosInstance from '../api/apiMuseum';
 
 
 export default function DetailMuseum() {
@@ -23,11 +24,10 @@ export default function DetailMuseum() {
   const {id} = useParams()
 
   useEffect(() => {
-    axios.get('/db.json').then((data) => {
-      const detailMuseum = data.data.museum.find(item => item.id == id)
-      console.log(detailMuseum)
-      setDetail(detailMuseum)
-    }).catch((err) => console.log(err))
+    axiosInstance.detail(id).then((res) =>{
+      console.log(res)
+      setDetail(res)
+    })
   }, [])
 
   return (

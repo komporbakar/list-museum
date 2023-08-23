@@ -1,22 +1,21 @@
 import React, {useState, useEffect} from 'react'
 import CardList from '../components/CardList'
-import axios from 'axios'
+// import axios from 'axios'
 
-import { ReactComponent as Love } from '../assets/icon-love.svg'
-import { ReactComponent as Search } from '../assets/icon-search.svg'
-import { ReactComponent as List } from '../assets/icon-list.svg'
 import { Link } from 'react-router-dom'
 import NavbarBottom from '../components/NavbarBottom'
+import  axiosInstance from '../api/apiMuseum'
 
 export default function Museum() {
 
     const [museum, setMuseum] = useState([])
 
     useEffect(() => {
-       axios.get('/db.json').then((res) =>{
-        setMuseum(res.data.museum)
-       }).catch((err) => console.log(err))
+        axiosInstance.museum().then((res) => {
+            setMuseum(res)
+        })
     }, [])
+    console.log(museum)
   return (
     <div className='flex flex-col min-h-screen '>
         <div className='bg-pages-2  h-full flex justify-center mx-auto'>
