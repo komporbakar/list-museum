@@ -9,11 +9,13 @@ import  axiosInstance from '../api/apiMuseum'
 export default function Museum() {
 
     const [museum, setMuseum] = useState([])
-
-    useEffect(() => {
+    const callApi = async() => {
         axiosInstance.museum().then((res) => {
             setMuseum(res)
         })
+    }
+    useEffect(() => {
+        callApi()
     }, [])
     console.log(museum)
   return (

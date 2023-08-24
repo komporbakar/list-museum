@@ -23,11 +23,15 @@ export default function DetailMuseum() {
   const [detail, setDetail] = useState({})
   const {id} = useParams()
 
-  useEffect(() => {
+  const callApi = async()=>{
     axiosInstance.detail(id).then((res) =>{
       console.log(res)
       setDetail(res)
     })
+  }
+
+  useEffect(() => {
+    callApi()
   }, [])
 
   return (
